@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const Login = () => {
     }
     // Simulate login success
     setError('');
+    setUser({ email: form.email, name: form.email.split('@')[0] });
     alert('Login successful!');
     navigate('/');
   };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = ({ setUser }) => {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const Signup = () => {
     }
     // Simulate signup success
     setError('');
+    setUser({ name: form.name, email: form.email });
     alert('Signup successful!');
     navigate('/');
   };
